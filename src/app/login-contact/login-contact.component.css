@@ -1,0 +1,9 @@
+.formulaireContainer .image{
+    /* border: 1px solid red; */
+    padding: 0 !important;
+}
+
+.formulaireContainer .image img{
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,62 @@
+<div class="formulaireContainer container mt-5 border d-flex shadow  p-0">
+
+    <div class="image">
+        <img src="https://img.freepik.com/free-vector/cyber-data-security-online-concept-illustration-internet-security-information-privacy-protection_1150-37328.jpg?w=740&t=st=1699224739~exp=1699225339~hmac=cd78a15296e2113aba8c19302aa3f2d67807640258eb5c954db737606fea3256" alt="">
+    </div>
+
+    <div class="container-form w-100">
+        <form class=" p-3 m-2" (ngSubmit)="formLogin(); loginStorage()" #connexion="ngForm"
+            *ngIf="formAffiche">
+            <h2>Connectez-vous</h2>
+            <div class="mb-5 form-group">
+                <label for="email">Email :</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+            </div>
+        
+            <div class="mb-5 form-group">
+                <label for="email">Mot de passe :</label>
+                <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
+                <p class="mdpOublie text-danger">Mot de passe oublié</p>
+            </div>
+        
+            <p>Vous n'avez pas de compte? <span class="text-warning" (click)="inscrisMoi()">Inscrivez-vous</span></p>
+        
+            <button type="submit" class="btn btn-primary mt-5 mb-5">Se connecter</button>
+        </form>
+        
+        <!-- [disabled]="connexion.invalid" -->
+        
+        <form class=" p-3 m-2" (ngSubmit)="formSubscribe(); subscribeStorage()"
+            #forminscription="ngForm" *ngIf="!formAffiche">
+            <h2>Inscrivez-vous</h2>
+            <div class="mb-3 form-group">
+                <label for="prenom">Prénom:</label>
+                <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="prenom" required>
+            </div>
+        
+            <div class="mb-3 form-group">
+                <label for="nom">Nom :</label>
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="nom" required>
+            </div>
+        
+            <div class="mb-3 form-group">
+                <label for="email">Adresse mail</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+            </div>
+        
+            <div class="mb-3 form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
+            </div>
+        
+            <div class="mb-2 form-group">
+                <label for="passwordConfirm">Confirmer le mot de passe :</label>
+                <input type="password" class="form-control" id="passwordconfirm" name="password" [(ngModel)]="passwordConfirm"
+                    required>
+            </div>
+        
+            <button type="submit" class="btn btn-primary">S'inscrire</button>
+        </form>
+
+    </div>
+</div>

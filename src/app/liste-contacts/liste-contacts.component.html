@@ -1,0 +1,110 @@
+<div class="container border p-2 mt-5">
+    <div class=" d-flex justify-content-end mt-3">
+        <button class="btn btn-danger">
+            <a routerLink="/connexion" class="text-decoration-none fs-5 text-light fw-bold"><i class="fa fa-sign-out"
+                    aria-hidden="true"></i>Déconnexion</a>
+        </button>
+    </div>
+    <div class="">
+        <h2 class=" text-center my-3">liste de vos contacts</h2>
+    </div>
+    
+    
+    <div class="ajout mt-4 py-3 d-flex justify-content-between">
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ajoutContact">Ajouter un
+            contact
+        </button>
+        
+        <button class="btn btn-warning">
+            <a routerLink="/Corbeille" class="fs-5 text-decoration-none text-light"><i class="fa fa-trash m m"
+                    aria-hidden="true"></i>Corbeille</a>
+        </button>
+
+        <div class="modal fade" id="ajoutContact">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ajoutContact">Ajouter un contact</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form (ngSubmit)="ajoutContStorage()">
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Ajouter Photo</label>
+                                <input class="form-control" type="file" id="formFile">
+                            </div>
+                            <div class="mb-3 form-group">
+                                <label for="ajoutPrenom" class="form-label">Prénom:</label>
+                                <input type="text" class="form-control" name="ajoutPrenom" id="ajoutPrenom" [(ngModel)]="ajoutPrenom">
+                            </div>
+                            <div class="mb-3 form-group">
+                                <label for="ajoutNom" class="form-label">Nom:</label>
+                                <input type="text" class="form-control" name="ajoutNom" id="ajoutNom" [(ngModel)]="ajoutNom">
+                            </div>
+                            <div class="mb-3 form-group">
+                                <label for="ajoutEmail" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="AjoutEmail" name="ajoutEmail" [(ngModel)]="ajoutEmail">
+                            </div>
+                            <div class="mb-3 form-group">
+                                <label for="ajoutTel" class="form-label">Téléphone:</label>
+                                <input type="tel" class="form-control" name="ajoutTel" [(ngModel)]="ajoutTel" id="ajoutTel">
+                            </div>
+                            <div class="mb-3 form-group">
+                                <label for="description" class="form-label">Description:</label>
+                                <textarea class="form-control" name="description" [(ngModel)]="description" id="description"></textarea>
+                            </div>
+                        
+                            <div class="">
+                                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Ajouter</button>
+                            </div>
+                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="mt-4 p-0">
+        <form class="col-4 " role="search">
+            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        </form>
+    </div>
+    
+    
+    <div class="mt-5 border p-2">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Téléphone</th>
+                    <!-- <th scope="col">Etat</th>
+                    <th scope="col">Date création</th> -->
+                    <th scope="col">Description</th>
+                    <th scope="col" class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contact of tableauDonneesAjout; let i = index ; let isEven = even" [ngClass]="{red: isEven}">
+                    <!--  *ngFor="let contact of tableauContact"  {{contact.prenom}} -->
+                    <th scope="col">{{i + 1}}</th>
+                    <th scope="col"></th>
+                    <th scope="col">{{contact.Prenom}}</th>
+                    <th scope="col">{{contact.Nom}}</th>
+                    <th scope="col">{{contact.Email}}</th>
+                    <th scope="col">{{contact.Tel}}</th>
+                    <th scope="col">{{contact.description}}</th>
+                    <th scope="col" class="d-flex justify-content-between">
+                        <button class="btn modifBtn" style="background-color: #2C35E0; color: white;">Modifier</button>
+                        <button class="btn btn-danger text-light fw-bold">Supprimer</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    
+    </div>
+</div>
